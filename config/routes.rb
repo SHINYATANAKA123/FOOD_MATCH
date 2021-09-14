@@ -26,15 +26,6 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
   end
   
-   namespace :restaurants do
-    get '/' => 'orders#index'
-    resources :orders, only: [:show, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :edit, :create, :update]
-    resources :products, except: [:destroy]
-    resources :order_products, only: [:update]
-    get "search" => "searches#search"
-  end
 
  devise_for :admins, controllers: {
   sessions:      'admins/sessions',
